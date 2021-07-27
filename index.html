@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div class="opening-screen row">
+<body class="background-color-blue">
+  <div class="opening-screen row container">
     <div class="title row justify-center">
       <h1 class="title pink margin-top">The Dog App</h1>
     </div>
@@ -25,12 +25,24 @@
       <button class="button get-started">Get Started</button>
     </div>
   </div>
-  <div class="container">
-    <header>
+  <div class="home-screen hidden">
+        <header class="row justify-center">
+      <h2 class="title pink header margin-none">The Dog App</h2>
     </header>
-    <main>
-    </main>
+    <div class="container">
+      <main>
+        <div class="dog-image row justify-center smaller-margin-top">
+          <img class="dog">
+        </div>
+      </main>
+    </div>
+    <footer class="row column-full padding-vert">
+      <div class="footer-half row justify-center">
+        <img src="images/house-door.png" alt="image of house">
+      </div>
+    </footer>
   </div>
+
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

@@ -1,12 +1,27 @@
 body {
-  background: #b5eaea;
   font-family: 'Nunito', sans-serif;
+}
+
+.background-color-blue {
+  background-color: #b5eaea;
+}
+
+.background-color-gray {
+  background-color: #ececec;
 }
 
 .title {
   font-family: 'Pacifico', cursive;
   font-size: 50pt;
   font-weight: 400;
+}
+
+.header {
+  font-size: 28pt;
+}
+
+header {
+  background-color: white;
 }
 
 .flex {
@@ -37,6 +52,14 @@ body {
   margin-top: 3rem;
 }
 
+.smaller-margin-top {
+  margin-top: 2rem;
+}
+
+.margin-none {
+  margin: 0;
+}
+
 .button {
   color: white;
   background-color: #f38ba0;
@@ -48,4 +71,23 @@ body {
   font-family: 'Nunito', sans-serif;
   padding: 1rem 2rem;
   font-size: 24pt;
+}
+
+footer {
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.footer-half {
+  width: 50%;
+}
+
+.padding-vert {
+  padding: 1rem 0;
+}
+
+.dog {
+  width: 90%;
 }
