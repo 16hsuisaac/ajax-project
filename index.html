@@ -6,32 +6,41 @@
   <title>AJAX Project</title>
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body class="background-color-blue">
-  <div class="opening-screen row container">
-    <div class="title row justify-center">
-      <h1 class="title pink margin-top">The Dog App</h1>
-    </div>
-    <div class="row justify-center">
+  <div class="opening-screen row container desktop-center">
+    <div class="column-half mobile-hidden">
       <img src="images/paws.png" alt="image of two paw prints" class="paws">
     </div>
-    <div class="row justify-center width small-margin-top">
-      <button class="button get-started big-padding">Get Started</button>
+    <div class="column-half">
+      <div class="title row justify-center">
+        <h1 class="title pink">The Dog App</h1>
+      </div>
+      <div class="row justify-center desktop-hidden">
+        <img src="images/paws.png" alt="image of two paw prints" class="paws margin-bottom">
+      </div>
+      <div class="row justify-center width">
+        <button class="button get-started big-padding">Get Started</button>
+      </div>
     </div>
+
   </div>
   <div class="home-screen hidden">
-        <header class="row justify-center">
+    <header class="row justify-center-mobile">
       <h2 class="title pink header margin-none">The Dog App</h2>
+      <div class="icon mobile-hidden">
+        <img src="images/house-door.png" alt="image of house" class="padding-around">
+      </div>
     </header>
     <div class="container">
       <main>
-        <div class="dog-image row justify-center smaller-margin-top">
+        <div class="dog-image row justify-center">
           <img class="dog">
         </div>
         <div class="dog-breed row justify-end">
@@ -44,7 +53,7 @@
         </div>
       </main>
     </div>
-    <footer class="row column-full">
+    <footer class="row column-full desktop-hidden">
       <div class="footer-half row justify-center">
         <img src="images/house-door.png" alt="image of house" class="padding-around">
       </div>

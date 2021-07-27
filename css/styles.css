@@ -44,24 +44,16 @@ header {
   width: 100%;
 }
 
-.big-margin-top {
-  margin-top: 10rem;
-}
-
 .margin-top {
   margin-top: 7rem;
 }
 
-.small-margin-top {
-  margin-top: 3rem;
-}
-
-.smaller-margin-top {
-  margin-top: 2rem;
-}
-
 .margin-none {
   margin: 0;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
 }
 
 .button {
@@ -102,8 +94,8 @@ footer {
 }
 
 .dog {
-  width: 100%;
-  max-height: 600px;
+  max-width: 100%;
+  max-height: 500px;
 }
 
 .justify-end {
@@ -119,7 +111,7 @@ main {
 }
 
 .padding-around {
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 .all-column-half {

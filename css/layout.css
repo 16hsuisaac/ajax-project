@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+.mobile-hidden {
+  display: none;
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
@@ -17,6 +21,14 @@
   width: 100%;
 }
 
+.desktop-center {
+  margin-top: 3rem;
+}
+
+.justify-center-mobile {
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -29,5 +41,21 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .desktop-hidden {
+    display: none;
+  }
+
+  .mobile-hidden {
+    display: block;
+  }
+
+  .desktop-center {
+    margin-top: 25%;
+  }
+
+  .justify-center-mobile {
+    justify-content: flex-start;
   }
 }
