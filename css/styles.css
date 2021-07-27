@@ -84,10 +84,14 @@ footer {
   width: 50%;
 }
 
-.padding-vert {
-  padding: 1rem 0;
+.dog {
+  width: 100%;
 }
 
-.dog {
-  width: 90%;
+.justify-end {
+  justify-content: flex-end;
+}
+
+main {
+  padding: 1rem 1rem;
 }
