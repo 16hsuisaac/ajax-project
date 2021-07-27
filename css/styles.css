@@ -1,0 +1,51 @@
+body {
+  background: #b5eaea;
+  font-family: 'Nunito', sans-serif;
+}
+
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 50pt;
+  font-weight: 400;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.width {
+  width: 100%;
+}
+
+.pink {
+  color: #f38ba0;
+}
+
+.paws {
+  width: 100%;
+}
+
+.margin-top {
+  margin-top: 7rem;
+}
+
+.small-margin-top {
+  margin-top: 3rem;
+}
+
+.button {
+  color: white;
+  background-color: #f38ba0;
+  border: none;
+  border-radius: 5px;
+}
+
+.get-started {
+  font-family: 'Nunito', sans-serif;
+  padding: 1rem 2rem;
+  font-size: 24pt;
+}
