@@ -95,12 +95,6 @@ footer {
   bottom: 0;
 }
 
-.above-footer {
-  position: fixed;
-  left: 0;
-  bottom: 75px;
-}
-
 .footer-half {
   width: 50%;
 }
