@@ -76,7 +76,7 @@ function bookmark(event) {
   if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
     data.entries.push(xhr.response);
-    data.EntryId++;
+    data.entryId++;
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
     data.entries.pop();
