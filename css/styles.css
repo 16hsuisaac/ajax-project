@@ -75,6 +75,10 @@ header {
   padding: 0.3rem 1rem;
 }
 
+.tiny-padding {
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+}
+
 .get-started {
   font-family: 'Nunito', sans-serif;
   font-size: 24pt;
@@ -149,4 +153,8 @@ main {
 
 .underline {
   text-decoration: underline;
+}
+
+.bookmark-button {
+  width: 80%;
 }
