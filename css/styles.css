@@ -75,6 +75,10 @@ header {
   padding: 0.3rem 1rem;
 }
 
+.tiny-padding {
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+}
+
 .get-started {
   font-family: 'Nunito', sans-serif;
   font-size: 24pt;
@@ -93,12 +97,6 @@ footer {
   position: fixed;
   left: 0;
   bottom: 0;
-}
-
-.above-footer {
-  position: fixed;
-  left: 0;
-  bottom: 75px;
 }
 
 .footer-half {
@@ -148,11 +146,10 @@ main {
   background-color: rgba(0, 0, 0, 0.671);
 }
 
-.bottom-right {
-  position: absolute;
-  bottom: 20px;
-}
-
 .underline {
   text-decoration: underline;
+}
+
+.bookmark-icon {
+  width: 80%;
 }

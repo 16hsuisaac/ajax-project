@@ -14,11 +14,14 @@ var $breedWeight = document.querySelector('.breed-weight');
 var $breedTemper = document.querySelector('.breed-temperament');
 var $modal = document.querySelector('.modal');
 var $exit = document.querySelector('.exit');
+var $bookmarkButton = document.querySelector('.bookmark-button');
+var $bookmarkIcon = document.querySelector('.bookmark-icon');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
 $learnMore.addEventListener('click', modal);
 $exit.addEventListener('click', exitModal);
+$bookmarkButton.addEventListener('click', bookmark);
 
 var xhr = null;
 
@@ -58,6 +61,7 @@ function breedInfo(event) {
 
 function random(event) {
   xhr = getDogPic();
+  $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
 }
 
 function modal(event) {
@@ -66,4 +70,16 @@ function modal(event) {
 
 function exitModal(event) {
   $modal.setAttribute('class', 'modal hidden');
+}
+
+function bookmark(event) {
+  if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
+    $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
+    data.entries.push(xhr.response);
+    data.entryId++;
+  } else {
+    $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
+    data.entries.pop();
+  }
+
 }

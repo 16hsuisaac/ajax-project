@@ -38,6 +38,11 @@
   border-radius: 10px;
 }
 
+.above-footer {
+  position: fixed;
+  bottom: 75px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -76,5 +81,10 @@
     padding: 20px;
     width: 60%;
     border-radius: 10px;
+  }
+
+  .above-footer {
+    position: relative;
+    bottom: 0;
   }
 }
