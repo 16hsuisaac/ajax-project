@@ -7,10 +7,18 @@ var $dogBreedText = document.querySelector('.dog-breed-text');
 var breed = null;
 var $random = document.querySelector('.random');
 var $learnMore = document.querySelector('.breed-info');
+var $breedName = document.querySelector('.breed-name');
+var $bredFor = document.querySelector('.bred-for');
+var $breedHeight = document.querySelector('.breed-height');
+var $breedWeight = document.querySelector('.breed-weight');
+var $breedTemper = document.querySelector('.breed-temperament');
+var $modal = document.querySelector('.modal');
+var $exit = document.querySelector('.exit');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
-/* $learnMore.addEventListener('click', infoModal); */
+$learnMore.addEventListener('click', modal);
+$exit.addEventListener('click', exitModal);
 
 var xhr = null;
 
@@ -26,15 +34,20 @@ function getDogPic() {
   xhr['x-api-key'] = '9c73ad28-2006-43c9-8f08-9e2c96fc540a';
   xhr.open('GET', 'https://api.thedogapi.com/v1/images/search');
   xhr.responseType = 'json';
-  xhr.addEventListener('load', breedName);
+  xhr.addEventListener('load', breedInfo);
   xhr.send();
   return xhr;
 }
 
-function breedName(event) {
+function breedInfo(event) {
   if (xhr.response[0].breeds[0]) {
     breed = xhr.response[0].breeds[0].name;
     $learnMore.textContent = 'Click here to learn more!';
+    $breedName.textContent = breed;
+    $bredFor.textContent = xhr.response[0].breeds[0].bred_for;
+    $breedHeight.textContent = xhr.response[0].breeds[0].height.imperial + ' inches';
+    $breedWeight.textContent = xhr.response[0].breeds[0].weight.imperial + ' lb';
+    $breedTemper.textContent = xhr.response[0].breeds[0].temperament;
   } else {
     breed = 'Unknown';
     $learnMore.textContent = null;
@@ -45,4 +58,12 @@ function breedName(event) {
 
 function random(event) {
   xhr = getDogPic();
+}
+
+function modal(event) {
+  $modal.setAttribute('class', 'modal');
+}
+
+function exitModal(event) {
+  $modal.setAttribute('class', 'modal hidden');
 }
