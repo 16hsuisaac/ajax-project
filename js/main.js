@@ -6,9 +6,11 @@ var $homeScreen = document.querySelector('.home-screen');
 var $dogBreedText = document.querySelector('.dog-breed-text');
 var breed = null;
 var $random = document.querySelector('.random');
+var $learnMore = document.querySelector('.breed-info');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
+/* $learnMore.addEventListener('click', infoModal); */
 
 var xhr = null;
 
@@ -32,8 +34,10 @@ function getDogPic() {
 function breedName(event) {
   if (xhr.response[0].breeds[0]) {
     breed = xhr.response[0].breeds[0].name;
+    $learnMore.textContent = 'Click here to learn more!';
   } else {
     breed = 'Unknown';
+    $learnMore.textContent = null;
   }
   $dogBreedText.textContent = breed;
   $dog.setAttribute('src', xhr.response[0].url);
