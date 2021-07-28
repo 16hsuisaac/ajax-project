@@ -2,7 +2,7 @@
 var data = {
   entries: [],
   editing: null,
-  EntryId: 0
+  entryId: 0
 };
 
 window.addEventListener('unload', beforeUnload);
