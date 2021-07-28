@@ -16,6 +16,7 @@ var $modal = document.querySelector('.modal');
 var $exit = document.querySelector('.exit');
 var $bookmarkButton = document.querySelector('.bookmark-button');
 var $bookmarkIcon = document.querySelector('.bookmark-icon');
+var $ul = document.querySelector('ul');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -76,10 +77,36 @@ function bookmark(event) {
   if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
     data.entries.push(xhr.response);
+    data.entries.entryId = data.entryId;
     data.entryId++;
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
     data.entries.pop();
   }
 
+}
+
+function dogList(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    $ul.appendChild(dogListView(data.entries[i]));
+  }
+}
+
+window.addEventListener('DOMContentLoaded', dogList);
+
+function dogListView(entry) {
+  var li = document.createElement('li');
+  li.setAttribute('class', 'row');
+  li.setAttribute('data-entry-id', entry.entryId);
+
+  var img = document.createElement('img');
+  img.setAttribute('class', 'dog');
+  img.setAttribute('src', entry[0].url);
+  li.appendChild(img);
+
+  var p = document.createElement('p');
+  p.textContent = entry[0].breeds[0].name;
+  li.appendChild(p);
+
+  return li;
 }

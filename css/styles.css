@@ -79,6 +79,10 @@ header {
   padding: 0.5rem 0.5rem 0.2rem 0.5rem;
 }
 
+.no-padding {
+  padding: 0;
+}
+
 .get-started {
   font-family: 'Nunito', sans-serif;
   font-size: 24pt;
@@ -106,6 +110,7 @@ footer {
 .dog {
   max-width: 100%;
   max-height: 500px;
+  border-radius: 5px;
 }
 
 .justify-end {

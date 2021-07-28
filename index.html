@@ -40,45 +40,54 @@
     </header>
     <div class="container">
       <main>
-        <div class="row justify-center">
-          <div class="dog-image row text-align-right">
-            <div class="dog-breed width justify-center">
-            <img class="dog">
-            <p class="dog-breed-text margin-none caption-font"></p>
-            <p class="breed-info margin-none caption-font underline"></p>
+        <div class="home-page hidden">
+          <div class="row justify-center">
+            <div class="dog-image row text-align-right">
+              <div class="dog-breed width justify-center">
+              <img class="dog">
+              <p class="dog-breed-text margin-none caption-font"></p>
+              <p class="breed-info margin-none caption-font underline"></p>
+              </div>
+            </div>
+              <div class="above-footer row width padding-around">
+                <div class="random-button all-column-half">
+                  <button class="button get-started small-padding random">Random</button>
+                </div>
+                <div class="all-column-half flex justify-end">
+                  <button class="button bookmark-button tiny-padding"><img src="images/bookmark-plus.png" class="bookmark-icon"></button>
+                </div>
+              </div>
+          </div>
+          <div class="modal hidden">
+            <div class="modal-content">
+              <h2 class="margin-bottom-none underline twenty-font">Breed:</h2>
+              <p class="margin-top-none caption-font twenty-font breed-name"></p>
+              <h2 class="margin-bottom-none underline twenty-font">Bred for:</h2>
+              <p class="margin-top-none caption-font twenty-font bred-for"></p>
+              <h2 class="margin-bottom-none underline twenty-font">Height:</h2>
+              <p class="margin-top-none caption-font twenty-font breed-height"></p>
+              <h2 class="margin-bottom-none underline twenty-font">Weight:</h2>
+              <p class="margin-top-none caption-font twenty-font breed-weight"></p>
+              <h2 class="margin-bottom-none underline twenty-font">Temperament:</h2>
+              <p class="margin-top-none caption-font twenty-font breed-temperament"></p>
+                <div class="row justify-end">
+                  <button class="button small-padding get-started sixteen-font exit">Exit</button>
+                </div>
             </div>
           </div>
-            <div class="above-footer row width padding-around">
-              <div class="random-button all-column-half">
-                <button class="button get-started small-padding random">Random</button>
-              </div>
-              <div class="all-column-half flex justify-end">
-                <button class="button bookmark-button tiny-padding"><img src="images/bookmark-plus.png" class="bookmark-icon"></button>
-              </div>
-            </div>
         </div>
-        <div class="modal hidden">
-          <div class="modal-content">
-            <h2 class="margin-bottom-none underline twenty-font">Breed:</h2>
-            <p class="margin-top-none caption-font twenty-font breed-name"></p>
-            <h2 class="margin-bottom-none underline twenty-font">Bred for:</h2>
-            <p class="margin-top-none caption-font twenty-font bred-for"></p>
-            <h2 class="margin-bottom-none underline twenty-font">Height:</h2>
-            <p class="margin-top-none caption-font twenty-font breed-height"></p>
-            <h2 class="margin-bottom-none underline twenty-font">Weight:</h2>
-            <p class="margin-top-none caption-font twenty-font breed-weight"></p>
-            <h2 class="margin-bottom-none underline twenty-font">Temperament:</h2>
-            <p class="margin-top-none caption-font twenty-font breed-temperament"></p>
-              <div class="row justify-end">
-                <button class="button small-padding get-started sixteen-font exit">Exit</button>
-              </div>
-          </div>
+        <div class="view-page">
+          <ul class="no-padding">
+          </ul>
         </div>
       </main>
     </div>
     <footer class="row column-full desktop-hidden">
       <div class="footer-half row justify-center">
         <img src="images/house-door.png" alt="image of house" class="padding-around">
+      </div>
+      <div class="footer-half row justify-center">
+        <img src="images/bookmark-black.png" alt="black bookmark" class="padding-around">
       </div>
     </footer>
   </div>
