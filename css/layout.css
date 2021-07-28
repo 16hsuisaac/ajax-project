@@ -29,6 +29,15 @@
   justify-content: center;
 }
 
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 25% auto;
+  padding: 20px;
+  width: 90%;
+  border-radius: 10px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -57,5 +66,15 @@
 
   .justify-center-mobile {
     justify-content: flex-start;
+  }
+
+  .modal-content {
+    position: relative;
+    top: -25%;
+    background-color: #fefefe;
+    margin: 25% auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
   }
 }
