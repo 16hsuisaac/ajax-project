@@ -1,0 +1,123 @@
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.background-color-blue {
+  background-color: #b5eaea;
+}
+
+.background-color-gray {
+  background-color: #ececec;
+}
+
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 50pt;
+  font-weight: 400;
+}
+
+.header {
+  font-size: 28pt;
+}
+
+header {
+  background-color: white;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.width {
+  width: 100%;
+}
+
+.pink {
+  color: #f38ba0;
+}
+
+.paws {
+  width: 100%;
+}
+
+.margin-none {
+  margin: 0;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.button {
+  color: white;
+  background-color: #f38ba0;
+  border: none;
+  border-radius: 5px;
+}
+
+.big-padding {
+  padding: 1rem 2rem;
+}
+
+.small-padding {
+  padding: 0.5rem 1rem;
+}
+
+.get-started {
+  font-family: 'Nunito', sans-serif;
+  font-size: 24pt;
+}
+
+footer {
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+.above-footer {
+  position: fixed;
+  left: 0;
+  bottom: 75px;
+}
+
+.footer-half {
+  width: 50%;
+}
+
+.dog {
+  max-width: 100%;
+  max-height: 500px;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+main {
+  padding: 1rem 1rem;
+}
+
+.caption-font {
+  font-size: 16pt;
+}
+
+.padding-around {
+  padding: 1rem 2rem;
+}
+
+.all-column-half {
+  width: 50%;
+}
+
+.random {
+  font-size: 24pt;
+}
+
+.text-align-right {
+  text-align: right;
+}
