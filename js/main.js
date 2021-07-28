@@ -61,6 +61,7 @@ function breedInfo(event) {
 
 function random(event) {
   xhr = getDogPic();
+  $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
 }
 
 function modal(event) {
@@ -74,8 +75,11 @@ function exitModal(event) {
 function bookmark(event) {
   if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
+    data.entries.push(xhr.response);
+    data.EntryId++;
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
+    data.entries.pop();
   }
 
 }
