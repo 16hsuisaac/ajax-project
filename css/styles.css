@@ -146,11 +146,6 @@ main {
   background-color: rgba(0, 0, 0, 0.671);
 }
 
-.bottom-right {
-  position: absolute;
-  bottom: 20px;
-}
-
 .underline {
   text-decoration: underline;
 }
