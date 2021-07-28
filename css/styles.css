@@ -44,10 +44,6 @@ header {
   width: 100%;
 }
 
-.margin-top {
-  margin-top: 7rem;
-}
-
 .margin-none {
   margin: 0;
 }
@@ -120,4 +116,8 @@ main {
 
 .random {
   font-size: 24pt;
+}
+
+.text-align-right {
+  text-align: right;
 }
