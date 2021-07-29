@@ -88,10 +88,35 @@ function bookmark(event) {
   if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
     data.entries.push(xhr.response);
+
+    var li = document.createElement('li');
+    li.setAttribute('class', 'row justify-end');
+
+    var img = document.createElement('img');
+    img.setAttribute('class', 'dog column-half');
+    img.setAttribute('src', xhr.response[0].url);
+    li.appendChild(img);
+
+    var p = document.createElement('p');
+    if (xhr.response[0].breeds[0]) {
+      p.textContent = xhr.response[0].breeds[0].name;
+      var p2 = document.createElement('p');
+      p2.setAttribute('class', 'breed-info margin-none underline margin-bottom');
+      p2.textContent = 'Click here to learn more!';
+      p2.setAttribute('id', xhr.response[0].id);
+    } else {
+      p.textContent = 'Unknown';
+    }
+    p.setAttribute('class', 'text-align-right column-half margin-bottom-none margin-top-none');
+    li.appendChild(p);
+    if (p2) {
+      li.appendChild(p2);
+    }
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
     data.entries.pop();
   }
+  $ul.appendChild(li);
 
 }
 
@@ -149,29 +174,19 @@ function listModal(event) {
 }
 
 function showHome(event) {
-  if ($homeButtonHeader.getAttribute('class') === event.target.getAttribute('class')) {
-    $homePage.setAttribute('class', 'home-page');
-    $viewPage.setAttribute('class', 'view-page hidden');
-    $savedButtonHeader.setAttribute('src', 'images/bookmark-black.png');
-    $homeButtonHeader.setAttribute('src', 'images/house-door.png');
-  } else {
-    $homePage.setAttribute('class', 'home-page');
-    $viewPage.setAttribute('class', 'view-page hidden');
-    $savedButton.setAttribute('src', 'images/bookmark-black.png');
-    $homeButton.setAttribute('src', 'images/house-door.png');
-  }
+  $homePage.setAttribute('class', 'home-page');
+  $viewPage.setAttribute('class', 'view-page hidden');
+  $savedButtonHeader.setAttribute('src', 'images/bookmark-black.png');
+  $homeButtonHeader.setAttribute('src', 'images/house-door.png');
+  $savedButton.setAttribute('src', 'images/bookmark-black.png');
+  $homeButton.setAttribute('src', 'images/house-door.png');
 }
 
 function showSaved(event) {
-  if ($savedButtonHeader.getAttribute('class') === event.target.getAttribute('class')) {
-    $homePage.setAttribute('class', 'home-page hidden');
-    $viewPage.setAttribute('class', 'view-page');
-    $savedButtonHeader.setAttribute('src', 'images/bookmark-pink.png');
-    $homeButtonHeader.setAttribute('src', 'images/house-black.png');
-  } else {
-    $homePage.setAttribute('class', 'home-page hidden');
-    $viewPage.setAttribute('class', 'view-page');
-    $savedButton.setAttribute('src', 'images/bookmark-pink.png');
-    $homeButton.setAttribute('src', 'images/house-black.png');
-  }
+  $homePage.setAttribute('class', 'home-page hidden');
+  $viewPage.setAttribute('class', 'view-page');
+  $savedButtonHeader.setAttribute('src', 'images/bookmark-pink.png');
+  $homeButtonHeader.setAttribute('src', 'images/house-black.png');
+  $savedButton.setAttribute('src', 'images/bookmark-pink.png');
+  $homeButton.setAttribute('src', 'images/house-black.png');
 }
