@@ -93,24 +93,27 @@ function bookmark(event) {
     li.setAttribute('class', 'row justify-end');
 
     var img = document.createElement('img');
-    img.setAttribute('class', 'dog column-half');
+    img.setAttribute('class', 'dog column-half margin-right-bottom-desktop');
     img.setAttribute('src', xhr.response[0].url);
     li.appendChild(img);
 
+    var div = document.createElement('div');
+    div.setAttribute('class', 'column-half');
     var p = document.createElement('p');
     if (xhr.response[0].breeds[0]) {
       p.textContent = xhr.response[0].breeds[0].name;
       var p2 = document.createElement('p');
-      p2.setAttribute('class', 'breed-info margin-none underline margin-bottom');
+      p2.setAttribute('class', 'inline breed-info margin-none underline margin-bottom text-align-right-mobile width');
       p2.textContent = 'Click here to learn more!';
       p2.setAttribute('id', xhr.response[0].id);
     } else {
       p.textContent = 'Unknown';
     }
-    p.setAttribute('class', 'text-align-right column-half margin-bottom-none margin-top-none');
-    li.appendChild(p);
+    p.setAttribute('class', 'inline padding-none text-align-right-mobile margin-bottom-none margin-top-none');
+    li.appendChild(div);
+    div.appendChild(p);
     if (p2) {
-      li.appendChild(p2);
+      div.appendChild(p2);
     }
     $ul.appendChild(li);
   } else {
@@ -134,24 +137,28 @@ function dogListView(entry) {
   li.setAttribute('class', 'row justify-end');
 
   var img = document.createElement('img');
-  img.setAttribute('class', 'dog column-half');
+  img.setAttribute('class', 'dog column-half margin-right-bottom-desktop');
   img.setAttribute('src', entry[0].url);
   li.appendChild(img);
 
+  var div = document.createElement('div');
+  div.setAttribute('class', 'column-half');
   var p = document.createElement('p');
+  div.appendChild(p);
   if (entry[0].breeds[0]) {
     p.textContent = entry[0].breeds[0].name;
     var p2 = document.createElement('p');
-    p2.setAttribute('class', 'breed-info margin-none underline margin-bottom');
+    p2.setAttribute('class', 'inline breed-info margin-none underline margin-bottom text-align-right-mobile width');
     p2.textContent = 'Click here to learn more!';
     p2.setAttribute('id', entry[0].id);
   } else {
     p.textContent = 'Unknown';
   }
-  p.setAttribute('class', 'text-align-right column-half margin-bottom-none margin-top-none');
-  li.appendChild(p);
+  p.setAttribute('class', 'inline text-align-right-mobile margin-bottom-none margin-top-none');
+  div.appendChild(p);
+  li.appendChild(div);
   if (p2) {
-    li.appendChild(p2);
+    div.appendChild(p2);
   }
   return li;
 }

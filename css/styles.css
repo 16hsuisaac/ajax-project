@@ -108,7 +108,7 @@ footer {
 }
 
 .dog {
-  max-width: 100%;
+  max-width: 350px;
   max-height: 500px;
   border-radius: 5px;
 }
@@ -157,4 +157,8 @@ main {
 
 .bookmark-icon {
   width: 80%;
+}
+
+.inline {
+  height: 20px;
 }

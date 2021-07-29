@@ -43,6 +43,14 @@
   bottom: 75px;
 }
 
+.text-align-right-mobile {
+  text-align: right;
+}
+
+.margin-right-bottom-desktop {
+  margin: 0;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -50,7 +58,7 @@
 
   .column-full,
   .column-half {
-    padding: 0 0.75rem;
+    padding: 0;
   }
 
   .column-half {
@@ -86,5 +94,14 @@
   .above-footer {
     position: relative;
     bottom: 0;
+  }
+
+  .text-align-right-mobile {
+    text-align: left;
+  }
+
+  .margin-right-bottom-desktop {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
   }
 }
