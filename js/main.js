@@ -21,6 +21,8 @@ var $homeButton = document.querySelector('.home-button');
 var $savedButton = document.querySelector('.saved-button');
 var $homePage = document.querySelector('.home-page');
 var $viewPage = document.querySelector('.view-page');
+var $homeButtonHeader = document.querySelector('.home-button-header');
+var $savedButtonHeader = document.querySelector('.saved-button-header');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -30,6 +32,8 @@ $bookmarkButton.addEventListener('click', bookmark);
 $ul.addEventListener('click', listModal);
 $homeButton.addEventListener('click', showHome);
 $savedButton.addEventListener('click', showSaved);
+$homeButtonHeader.addEventListener('click', showHome);
+$savedButtonHeader.addEventListener('click', showSaved);
 
 var xhr = null;
 
@@ -145,15 +149,29 @@ function listModal(event) {
 }
 
 function showHome(event) {
-  $homePage.setAttribute('class', 'home-page');
-  $viewPage.setAttribute('class', 'view-page hidden');
-  $savedButton.setAttribute('src', 'images/bookmark-black.png');
-  $homeButton.setAttribute('src', 'images/house-door.png');
+  if ($homeButtonHeader.getAttribute('class') === event.target.getAttribute('class')) {
+    $homePage.setAttribute('class', 'home-page');
+    $viewPage.setAttribute('class', 'view-page hidden');
+    $savedButtonHeader.setAttribute('src', 'images/bookmark-black.png');
+    $homeButtonHeader.setAttribute('src', 'images/house-door.png');
+  } else {
+    $homePage.setAttribute('class', 'home-page');
+    $viewPage.setAttribute('class', 'view-page hidden');
+    $savedButton.setAttribute('src', 'images/bookmark-black.png');
+    $homeButton.setAttribute('src', 'images/house-door.png');
+  }
 }
 
 function showSaved(event) {
-  $homePage.setAttribute('class', 'home-page hidden');
-  $viewPage.setAttribute('class', 'view-page');
-  $savedButton.setAttribute('src', 'images/bookmark-pink.png');
-  $homeButton.setAttribute('src', 'images/house-black.png');
+  if ($savedButtonHeader.getAttribute('class') === event.target.getAttribute('class')) {
+    $homePage.setAttribute('class', 'home-page hidden');
+    $viewPage.setAttribute('class', 'view-page');
+    $savedButtonHeader.setAttribute('src', 'images/bookmark-pink.png');
+    $homeButtonHeader.setAttribute('src', 'images/house-black.png');
+  } else {
+    $homePage.setAttribute('class', 'home-page hidden');
+    $viewPage.setAttribute('class', 'view-page');
+    $savedButton.setAttribute('src', 'images/bookmark-pink.png');
+    $homeButton.setAttribute('src', 'images/house-black.png');
+  }
 }
