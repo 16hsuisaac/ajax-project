@@ -112,12 +112,12 @@ function bookmark(event) {
     if (p2) {
       li.appendChild(p2);
     }
+    $ul.appendChild(li);
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
     data.entries.pop();
     $ul.removeChild($ul.lastElementChild);
   }
-  $ul.appendChild(li);
 
 }
 
