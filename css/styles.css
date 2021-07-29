@@ -162,3 +162,7 @@ main {
 .inline {
   height: 20px;
 }
+
+.home-button-header {
+  margin-left: 2rem;
+}
