@@ -17,6 +17,10 @@ var $exit = document.querySelector('.exit');
 var $bookmarkButton = document.querySelector('.bookmark-button');
 var $bookmarkIcon = document.querySelector('.bookmark-icon');
 var $ul = document.querySelector('ul');
+var $homeButton = document.querySelector('.home-button');
+var $savedButton = document.querySelector('.saved-button');
+var $homePage = document.querySelector('.home-page');
+var $viewPage = document.querySelector('.view-page');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -24,6 +28,8 @@ $learnMore.addEventListener('click', modal);
 $exit.addEventListener('click', exitModal);
 $bookmarkButton.addEventListener('click', bookmark);
 $ul.addEventListener('click', listModal);
+$homeButton.addEventListener('click', showHome);
+$savedButton.addEventListener('click', showSaved);
 
 var xhr = null;
 
@@ -136,4 +142,18 @@ function listModal(event) {
     $breedTemper.textContent = data.entries[iD][0].breeds[0].temperament;
     $modal.setAttribute('class', 'modal');
   }
+}
+
+function showHome(event) {
+  $homePage.setAttribute('class', 'home-page');
+  $viewPage.setAttribute('class', 'view-page hidden');
+  $savedButton.setAttribute('src', 'images/bookmark-black.png');
+  $homeButton.setAttribute('src', 'images/house-door.png');
+}
+
+function showSaved(event) {
+  $homePage.setAttribute('class', 'home-page hidden');
+  $viewPage.setAttribute('class', 'view-page');
+  $savedButton.setAttribute('src', 'images/bookmark-pink.png');
+  $homeButton.setAttribute('src', 'images/house-black.png');
 }
