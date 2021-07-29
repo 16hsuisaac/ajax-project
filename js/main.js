@@ -25,6 +25,8 @@ var $homeButtonHeader = document.querySelector('.home-button-header');
 var $savedButtonHeader = document.querySelector('.saved-button-header');
 var $footer = document.querySelector('footer');
 var $header = document.querySelector('header');
+var $stars = document.querySelector('.stars');
+var $starIcons = document.querySelectorAll('.star-icons');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -34,6 +36,7 @@ $bookmarkButton.addEventListener('click', bookmark);
 $ul.addEventListener('click', listModal);
 $footer.addEventListener('click', switchViews);
 $header.addEventListener('click', switchViews);
+$stars.addEventListener('click', fillStars);
 
 var xhr = null;
 
@@ -169,4 +172,18 @@ function switchViews(event) {
     $savedButton.setAttribute('src', 'images/bookmark-pink.png');
     $homeButton.setAttribute('src', 'images/house-black.png');
   }
+}
+
+function fillStars(event) {
+  var numOfStars = 0;
+  for (var i = 0; i < $starIcons.length; i++) {
+    $starIcons[i].setAttribute('src', 'images/star-empty.png');
+    if (event.target === $starIcons[i]) {
+      numOfStars = parseInt($starIcons[i].getAttribute('value'));
+    }
+  }
+  for (var e = 0; e < numOfStars; e++) {
+    $starIcons[e].setAttribute('src', 'images/star-fill.png');
+  }
+
 }
