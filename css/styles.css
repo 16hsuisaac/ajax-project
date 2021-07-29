@@ -166,3 +166,13 @@ main {
 .home-button-header {
   margin-left: 2rem;
 }
+
+.textarea {
+  resize: none;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.star-icons {
+  padding: 0 0.3rem;
+}
