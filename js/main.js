@@ -23,6 +23,7 @@ $random.addEventListener('click', random);
 $learnMore.addEventListener('click', modal);
 $exit.addEventListener('click', exitModal);
 $bookmarkButton.addEventListener('click', bookmark);
+$ul.addEventListener('click', listModal);
 
 var xhr = null;
 
@@ -77,8 +78,6 @@ function bookmark(event) {
   if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
     data.entries.push(xhr.response);
-    data.entries.entryId = data.entryId;
-    data.entryId++;
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
     data.entries.pop();
@@ -86,27 +85,55 @@ function bookmark(event) {
 
 }
 
+window.addEventListener('DOMContentLoaded', dogList);
+
 function dogList(event) {
   for (var i = 0; i < data.entries.length; i++) {
     $ul.appendChild(dogListView(data.entries[i]));
   }
 }
 
-window.addEventListener('DOMContentLoaded', dogList);
-
 function dogListView(entry) {
   var li = document.createElement('li');
-  li.setAttribute('class', 'row');
-  li.setAttribute('data-entry-id', entry.entryId);
+  li.setAttribute('class', 'row justify-end');
 
   var img = document.createElement('img');
-  img.setAttribute('class', 'dog');
+  img.setAttribute('class', 'dog column-half');
   img.setAttribute('src', entry[0].url);
   li.appendChild(img);
 
   var p = document.createElement('p');
-  p.textContent = entry[0].breeds[0].name;
+  if (entry[0].breeds[0]) {
+    p.textContent = entry[0].breeds[0].name;
+    var p2 = document.createElement('p');
+    p2.setAttribute('class', 'breed-info margin-none underline margin-bottom');
+    p2.textContent = 'Click here to learn more!';
+    p2.setAttribute('id', entry[0].id);
+  } else {
+    p.textContent = 'Unknown';
+  }
+  p.setAttribute('class', 'text-align-right column-half margin-bottom-none margin-top-none');
   li.appendChild(p);
-
+  if (p2) {
+    li.appendChild(p2);
+  }
   return li;
+}
+
+var iD = null;
+
+function listModal(event) {
+  if (event.target.matches('.breed-info')) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i][0].id === event.target.getAttribute('id')) {
+        iD = i;
+      }
+    }
+    $breedName.textContent = data.entries[iD][0].breeds[0].name;
+    $bredFor.textContent = data.entries[iD][0].breeds[0].bred_for;
+    $breedHeight.textContent = data.entries[iD][0].breeds[0].height.imperial + ' inches';
+    $breedWeight.textContent = data.entries[iD][0].breeds[0].weight.imperial + ' lb';
+    $breedTemper.textContent = data.entries[iD][0].breeds[0].temperament;
+    $modal.setAttribute('class', 'modal');
+  }
 }
