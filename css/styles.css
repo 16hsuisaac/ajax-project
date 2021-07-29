@@ -79,6 +79,10 @@ header {
   padding: 0.5rem 0.5rem 0.2rem 0.5rem;
 }
 
+.bottom-padding {
+  padding: 0 0 3rem 0;
+}
+
 .get-started {
   font-family: 'Nunito', sans-serif;
   font-size: 24pt;
@@ -104,8 +108,9 @@ footer {
 }
 
 .dog {
-  max-width: 100%;
+  max-width: 350px;
   max-height: 500px;
+  border-radius: 5px;
 }
 
 .justify-end {
@@ -152,4 +157,12 @@ main {
 
 .bookmark-icon {
   width: 80%;
+}
+
+.inline {
+  height: 20px;
+}
+
+.home-button-header {
+  margin-left: 2rem;
 }

@@ -16,12 +16,24 @@ var $modal = document.querySelector('.modal');
 var $exit = document.querySelector('.exit');
 var $bookmarkButton = document.querySelector('.bookmark-button');
 var $bookmarkIcon = document.querySelector('.bookmark-icon');
+var $ul = document.querySelector('ul');
+var $homeButton = document.querySelector('.home-button');
+var $savedButton = document.querySelector('.saved-button');
+var $homePage = document.querySelector('.home-page');
+var $viewPage = document.querySelector('.view-page');
+var $homeButtonHeader = document.querySelector('.home-button-header');
+var $savedButtonHeader = document.querySelector('.saved-button-header');
+var $footer = document.querySelector('footer');
+var $header = document.querySelector('header');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
 $learnMore.addEventListener('click', modal);
 $exit.addEventListener('click', exitModal);
 $bookmarkButton.addEventListener('click', bookmark);
+$ul.addEventListener('click', listModal);
+$footer.addEventListener('click', switchViews);
+$header.addEventListener('click', switchViews);
 
 var xhr = null;
 
@@ -76,10 +88,85 @@ function bookmark(event) {
   if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
     data.entries.push(xhr.response);
-    data.entryId++;
+    $ul.appendChild(dogListView(xhr.response));
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
     data.entries.pop();
+    $ul.removeChild($ul.lastElementChild);
   }
+}
 
+window.addEventListener('DOMContentLoaded', dogList);
+
+function dogList(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    $ul.appendChild(dogListView(data.entries[i]));
+  }
+}
+
+function dogListView(entry) {
+  var li = document.createElement('li');
+  li.setAttribute('class', 'row justify-end');
+
+  var img = document.createElement('img');
+  img.setAttribute('class', 'dog column-half margin-right-bottom-desktop');
+  img.setAttribute('src', entry[0].url);
+  li.appendChild(img);
+
+  var div = document.createElement('div');
+  div.setAttribute('class', 'column-half');
+  var p = document.createElement('p');
+  div.appendChild(p);
+  if (entry[0].breeds[0]) {
+    p.textContent = entry[0].breeds[0].name;
+    var p2 = document.createElement('p');
+    p2.setAttribute('class', 'inline breed-info margin-none underline margin-bottom text-align-right-mobile width');
+    p2.textContent = 'Click here to learn more!';
+    p2.setAttribute('id', entry[0].id);
+  } else {
+    p.textContent = 'Unknown';
+  }
+  p.setAttribute('class', 'inline text-align-right-mobile margin-bottom-none margin-top-none');
+  div.appendChild(p);
+  li.appendChild(div);
+  if (p2) {
+    div.appendChild(p2);
+  }
+  return li;
+}
+
+var iD = null;
+
+function listModal(event) {
+  if (event.target.matches('.breed-info')) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i][0].id === event.target.getAttribute('id')) {
+        iD = i;
+      }
+    }
+    $breedName.textContent = data.entries[iD][0].breeds[0].name;
+    $bredFor.textContent = data.entries[iD][0].breeds[0].bred_for;
+    $breedHeight.textContent = data.entries[iD][0].breeds[0].height.imperial + ' inches';
+    $breedWeight.textContent = data.entries[iD][0].breeds[0].weight.imperial + ' lb';
+    $breedTemper.textContent = data.entries[iD][0].breeds[0].temperament;
+    $modal.setAttribute('class', 'modal');
+  }
+}
+
+function switchViews(event) {
+  if (event.target === $homeButton || event.target === $homeButtonHeader) {
+    $homePage.setAttribute('class', 'home-page');
+    $viewPage.setAttribute('class', 'view-page hidden');
+    $savedButtonHeader.setAttribute('src', 'images/bookmark-black.png');
+    $homeButtonHeader.setAttribute('src', 'images/house-door.png');
+    $savedButton.setAttribute('src', 'images/bookmark-black.png');
+    $homeButton.setAttribute('src', 'images/house-door.png');
+  } else if (event.target === $savedButton || event.target === $savedButtonHeader) {
+    $homePage.setAttribute('class', 'home-page hidden');
+    $viewPage.setAttribute('class', 'view-page');
+    $savedButtonHeader.setAttribute('src', 'images/bookmark-pink.png');
+    $homeButtonHeader.setAttribute('src', 'images/house-black.png');
+    $savedButton.setAttribute('src', 'images/bookmark-pink.png');
+    $homeButton.setAttribute('src', 'images/house-black.png');
+  }
 }
