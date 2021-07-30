@@ -30,7 +30,6 @@ var $starIcons = document.querySelectorAll('.star-icons');
 var $save = document.querySelector('.save');
 var $textArea = document.querySelector('textarea');
 var $modalJudge = document.querySelector('.judge');
-/* var $allPencils = document.querySelectorAll('.pencil-square'); */
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -42,7 +41,7 @@ $footer.addEventListener('click', switchViews);
 $header.addEventListener('click', switchViews);
 $stars.addEventListener('click', newStars);
 $save.addEventListener('click', submit);
-/* $allPencils.addEventListener('click', edit); */
+$ul.addEventListener('click', edit);
 
 var xhr = null;
 
@@ -238,14 +237,22 @@ function submit(event) {
     data.entries[data.entries.length - 1][0].comment = $textArea.value;
   }
   $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
+
   $modalJudge.setAttribute('class', 'modal judge hidden');
 }
 
-/* function edit(event) {
-  $modalJudge.setAttribute('class', 'modal judge');
-  for (var i = 0; i < data.entries.length; i++) {
-    if (event.target.getAttribute('id-key') === data.entries[i][0].id) {
-
+function edit(event) {
+  if (event.target.matches('.pencil-square')) {
+    $modalJudge.setAttribute('class', 'modal judge');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (event.target.getAttribute('id-key') === data.entries[i][0].id) {
+        fillStars(data.entries[i][0].rating);
+        if (data.entries[i][0].comments === undefined) {
+          $textArea.value = '';
+        } else {
+          $textArea.value = data.entries[i][0].comments;
+        }
+      }
     }
   }
-} */
+}
