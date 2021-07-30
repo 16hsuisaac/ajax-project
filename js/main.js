@@ -230,6 +230,7 @@ function fillStars(number) {
 }
 
 function submit(event) {
+  event.preventDefault();
   if (data.editing === null) {
     if (numOfStars !== null) {
       data.entries[data.entries.length - 1][0].rating = numOfStars;
