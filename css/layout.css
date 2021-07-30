@@ -51,6 +51,10 @@
   margin: 0;
 }
 
+.justify-end-mobile {
+  justify-content: flex-end;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -103,5 +107,9 @@
   .margin-right-bottom-desktop {
     margin-right: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .justify-end-mobile {
+    justify-content: flex-start;
   }
 }

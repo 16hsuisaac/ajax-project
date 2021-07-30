@@ -127,13 +127,13 @@ function dogListView(entry) {
   if (entry[0].breeds[0]) {
     p.textContent = entry[0].breeds[0].name;
     var p2 = document.createElement('p');
-    p2.setAttribute('class', 'inline breed-info margin-none underline margin-bottom-none text-align-right-mobile width');
+    p2.setAttribute('class', 'sixteen-font inline breed-info margin-none underline text-align-right-mobile width');
     p2.textContent = 'Click here to learn more!';
     p2.setAttribute('id', entry[0].id);
   } else {
     p.textContent = 'Unknown';
   }
-  p.setAttribute('class', 'inline text-align-right-mobile margin-bottom-none margin-top-none');
+  p.setAttribute('class', 'sixteen-font inline text-align-right-mobile margin-bottom-none margin-top-none');
   div.appendChild(p);
 
   li.appendChild(div);
@@ -141,7 +141,7 @@ function dogListView(entry) {
     div.appendChild(p2);
   }
   var stars = document.createElement('div');
-  stars.setAttribute('class', 'stars row');
+  stars.setAttribute('class', 'stars row margin-top');
   var starIcon = document.createElement('img');
   starIcon.setAttribute('class', 'star-icon-filled');
   starIcon.setAttribute('src', 'images/star-fill.png');
@@ -150,6 +150,7 @@ function dogListView(entry) {
   }
   div.appendChild(stars);
   var comments = document.createElement('p');
+  comments.setAttribute('class', 'sixteen-font margin-top-none text-align-left');
   comments.textContent = entry[0].comment;
   div.appendChild(comments);
 
