@@ -1,8 +1,7 @@
 /* exported data */
 var data = {
   entries: [],
-  editing: null,
-  entryId: 0
+  editing: null
 };
 
 window.addEventListener('unload', beforeUnload);

@@ -119,6 +119,7 @@ function dogList(event) {
 function dogListView(entry) {
   var li = document.createElement('li');
   li.setAttribute('class', 'row justify-end');
+  li.setAttribute('liId', entry[0].id);
 
   var img = document.createElement('img');
   img.setAttribute('class', 'dog column-half margin-right-bottom-desktop');
@@ -169,7 +170,6 @@ function dogListView(entry) {
   comments.setAttribute('class', 'sixteen-font margin-top-none text-align-left');
   comments.textContent = entry[0].comment;
   div.appendChild(comments);
-
   return li;
 }
 
@@ -230,14 +230,33 @@ function fillStars(number) {
 }
 
 function submit(event) {
-  if (numOfStars !== null) {
-    data.entries[data.entries.length - 1][0].rating = numOfStars;
-  }
-  if ($textArea.value !== undefined) {
-    data.entries[data.entries.length - 1][0].comment = $textArea.value;
-  }
-  $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
+  if (data.editing === null) {
+    if (numOfStars !== null) {
+      data.entries[data.entries.length - 1][0].rating = numOfStars;
+    }
+    if ($textArea.value !== undefined) {
+      data.entries[data.entries.length - 1][0].comment = $textArea.value;
+    }
+    $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
 
+  } else {
+    var objectEdit = [{ id: data.editing[0].id, rating: numOfStars, comment: $textArea.value }];
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i][0].id === objectEdit[0].id) {
+        data.entries[i][0].rating = objectEdit[0].rating;
+        data.entries[i][0].comment = objectEdit[0].comment;
+        var editedEntry = dogListView(data.entries[i]);
+        var numId = i;
+      }
+    }
+    var $liItems = document.querySelectorAll('li');
+    for (var e = 0; e < $liItems.length; e++) {
+      if ($liItems[e].getAttribute('liId') === data.entries[numId][0].id) {
+        $ul.replaceChild(editedEntry, $liItems[e]);
+      }
+    }
+    data.editing = null;
+  }
   $modalJudge.setAttribute('class', 'modal judge hidden');
 }
 
@@ -246,6 +265,7 @@ function edit(event) {
     $modalJudge.setAttribute('class', 'modal judge');
     for (var i = 0; i < data.entries.length; i++) {
       if (event.target.getAttribute('id-key') === data.entries[i][0].id) {
+        data.editing = data.entries[i];
         fillStars(data.entries[i][0].rating);
         if (data.entries[i][0].comment === undefined) {
           $textArea.value = '';
