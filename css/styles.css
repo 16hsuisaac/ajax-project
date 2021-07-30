@@ -179,3 +179,15 @@ main {
 li {
   margin-bottom: 1rem;
 }
+
+.home-button-header,
+.saved-button-header,
+button,
+.star-icons,
+.star-icons-filled,
+.home-button,
+.saved-button,
+.underline,
+.pencil-square {
+  cursor: pointer;
+}
