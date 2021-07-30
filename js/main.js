@@ -30,6 +30,7 @@ var $starIcons = document.querySelectorAll('.star-icons');
 var $save = document.querySelector('.save');
 var $textArea = document.querySelector('textarea');
 var $modalJudge = document.querySelector('.judge');
+/* var $allPencils = document.querySelectorAll('.pencil-square'); */
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -39,8 +40,9 @@ $bookmarkButton.addEventListener('click', bookmark);
 $ul.addEventListener('click', listModal);
 $footer.addEventListener('click', switchViews);
 $header.addEventListener('click', switchViews);
-$stars.addEventListener('click', fillStars);
+$stars.addEventListener('click', newStars);
 $save.addEventListener('click', submit);
+/* $allPencils.addEventListener('click', edit); */
 
 var xhr = null;
 
@@ -210,8 +212,13 @@ function switchViews(event) {
 
 var numOfStars = null;
 
-function fillStars(event) {
+function newStars(event) {
   numOfStars = null;
+  fillStars(numOfStars);
+}
+
+function fillStars(number) {
+  numOfStars = number;
   for (var i = 0; i < $starIcons.length; i++) {
     $starIcons[i].setAttribute('src', 'images/star-empty.png');
     if (event.target === $starIcons[i]) {
@@ -233,3 +240,12 @@ function submit(event) {
   $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
   $modalJudge.setAttribute('class', 'modal judge hidden');
 }
+
+/* function edit(event) {
+  $modalJudge.setAttribute('class', 'modal judge');
+  for (var i = 0; i < data.entries.length; i++) {
+    if (event.target.getAttribute('id-key') === data.entries[i][0].id) {
+
+    }
+  }
+} */
