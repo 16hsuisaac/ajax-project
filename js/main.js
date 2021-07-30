@@ -48,7 +48,7 @@ var xhr = null;
 function openApp(event) {
   xhr = getDogPic();
   $openingScreen.setAttribute('class', 'opening-screen row container hidden');
-  $body.setAttribute('class', 'background-color-gray');
+  $body.setAttribute('class', 'background-color-gray margin-none');
   $homeScreen.setAttribute('class', 'home-screen');
 }
 
@@ -127,7 +127,7 @@ function dogListView(entry) {
   li.appendChild(img);
 
   var div = document.createElement('div');
-  div.setAttribute('class', 'column-half');
+  div.setAttribute('class', 'column-half margin-left');
   var p = document.createElement('p');
   div.appendChild(p);
   if (entry[0].breeds[0]) {

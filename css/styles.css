@@ -12,20 +12,16 @@ body {
 
 .title {
   font-family: 'Pacifico', cursive;
-  font-size: 50pt;
+  font-size: 3rem;
   font-weight: 400;
 }
 
 .header {
-  font-size: 28pt;
+  font-size: 2rem;
 }
 
 header {
   background-color: white;
-}
-
-.flex {
-  display: flex;
 }
 
 .justify-center {
@@ -49,11 +45,15 @@ header {
 }
 
 .margin-top {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .margin-top-none {
   margin-top: 0;
+}
+
+.margin-left {
+  margin-left: 1rem;
 }
 
 .margin-bottom-none {
@@ -88,16 +88,11 @@ header {
 }
 
 .get-started {
-  font-family: 'Nunito', sans-serif;
-  font-size: 24pt;
+  font-size: 2rem;
 }
 
 .sixteen-font {
-  font-size: 16pt;
-}
-
-.twenty-font {
-  font-size: 20pt;
+  font-size: 1rem;
 }
 
 footer {
@@ -123,10 +118,6 @@ footer {
 
 main {
   padding: 1rem 1rem;
-}
-
-.caption-font {
-  font-size: 16pt;
 }
 
 .padding-around {
@@ -161,10 +152,6 @@ main {
 
 .bookmark-icon {
   width: 80%;
-}
-
-.inline {
-  height: 20px;
 }
 
 .home-button-header {
