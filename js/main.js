@@ -39,8 +39,9 @@ $bookmarkButton.addEventListener('click', bookmark);
 $ul.addEventListener('click', listModal);
 $footer.addEventListener('click', switchViews);
 $header.addEventListener('click', switchViews);
-$stars.addEventListener('click', fillStars);
+$stars.addEventListener('click', newStars);
 $save.addEventListener('click', submit);
+$ul.addEventListener('click', edit);
 
 var xhr = null;
 
@@ -118,6 +119,7 @@ function dogList(event) {
 function dogListView(entry) {
   var li = document.createElement('li');
   li.setAttribute('class', 'row justify-end');
+  li.setAttribute('liId', entry[0].id);
 
   var img = document.createElement('img');
   img.setAttribute('class', 'dog column-half margin-right-bottom-desktop');
@@ -144,20 +146,30 @@ function dogListView(entry) {
   if (p2) {
     div.appendChild(p2);
   }
+  var starsRow = document.createElement('div');
+  starsRow.setAttribute('class', 'row margin-top');
   var stars = document.createElement('div');
-  stars.setAttribute('class', 'stars row margin-top');
+  stars.setAttribute('class', 'stars row all-column-half');
   var starIcon = document.createElement('img');
   starIcon.setAttribute('class', 'star-icon-filled');
   starIcon.setAttribute('src', 'images/star-fill.png');
   for (var i = 0; i < entry[0].rating; i++) {
     stars.appendChild(starIcon.cloneNode(true));
   }
-  div.appendChild(stars);
+  div.appendChild(starsRow);
+  starsRow.appendChild(stars);
+  var pencil = document.createElement('img');
+  pencil.setAttribute('class', 'pencil-square');
+  pencil.setAttribute('id-key', entry[0].id);
+  pencil.setAttribute('src', 'images/pencil-square.png');
+  var pencilDiv = document.createElement('div');
+  pencilDiv.setAttribute('class', 'row all-column-half justify-end');
+  starsRow.appendChild(pencilDiv);
+  pencilDiv.appendChild(pencil);
   var comments = document.createElement('p');
   comments.setAttribute('class', 'sixteen-font margin-top-none text-align-left');
   comments.textContent = entry[0].comment;
   div.appendChild(comments);
-
   return li;
 }
 
@@ -199,8 +211,13 @@ function switchViews(event) {
 
 var numOfStars = null;
 
-function fillStars(event) {
+function newStars(event) {
   numOfStars = null;
+  fillStars(numOfStars);
+}
+
+function fillStars(number) {
+  numOfStars = number;
   for (var i = 0; i < $starIcons.length; i++) {
     $starIcons[i].setAttribute('src', 'images/star-empty.png');
     if (event.target === $starIcons[i]) {
@@ -213,12 +230,49 @@ function fillStars(event) {
 }
 
 function submit(event) {
-  if (numOfStars !== null) {
-    data.entries[data.entries.length - 1][0].rating = numOfStars;
+  if (data.editing === null) {
+    if (numOfStars !== null) {
+      data.entries[data.entries.length - 1][0].rating = numOfStars;
+    }
+    if ($textArea.value !== undefined) {
+      data.entries[data.entries.length - 1][0].comment = $textArea.value;
+    }
+    $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
+
+  } else {
+    var objectEdit = [{ id: data.editing[0].id, rating: numOfStars, comment: $textArea.value }];
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i][0].id === objectEdit[0].id) {
+        data.entries[i][0].rating = objectEdit[0].rating;
+        data.entries[i][0].comment = objectEdit[0].comment;
+        var editedEntry = dogListView(data.entries[i]);
+        var numId = i;
+      }
+    }
+    var $liItems = document.querySelectorAll('li');
+    for (var e = 0; e < $liItems.length; e++) {
+      if ($liItems[e].getAttribute('liId') === data.entries[numId][0].id) {
+        $ul.replaceChild(editedEntry, $liItems[e]);
+      }
+    }
+    data.editing = null;
   }
-  if ($textArea.value !== undefined) {
-    data.entries[data.entries.length - 1][0].comment = $textArea.value;
-  }
-  $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
   $modalJudge.setAttribute('class', 'modal judge hidden');
+}
+
+function edit(event) {
+  if (event.target.matches('.pencil-square')) {
+    $modalJudge.setAttribute('class', 'modal judge');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (event.target.getAttribute('id-key') === data.entries[i][0].id) {
+        data.editing = data.entries[i];
+        fillStars(data.entries[i][0].rating);
+        if (data.entries[i][0].comment === undefined) {
+          $textArea.value = '';
+        } else {
+          $textArea.value = data.entries[i][0].comment;
+        }
+      }
+    }
+  }
 }
