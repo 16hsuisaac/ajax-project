@@ -175,3 +175,7 @@ main {
 .text-align-left {
   text-align: left;
 }
+
+li {
+  margin-bottom: 1rem;
+}
