@@ -27,6 +27,9 @@ var $footer = document.querySelector('footer');
 var $header = document.querySelector('header');
 var $stars = document.querySelector('.stars');
 var $starIcons = document.querySelectorAll('.star-icons');
+var $save = document.querySelector('.save');
+var $textArea = document.querySelector('textarea');
+var $modalJudge = document.querySelector('.judge');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -37,6 +40,7 @@ $ul.addEventListener('click', listModal);
 $footer.addEventListener('click', switchViews);
 $header.addEventListener('click', switchViews);
 $stars.addEventListener('click', fillStars);
+$save.addEventListener('click', submit);
 
 var xhr = null;
 
@@ -91,7 +95,7 @@ function bookmark(event) {
   if ($bookmarkIcon.getAttribute('src') === 'images/bookmark-plus.png') {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-fill.png');
     data.entries.push(xhr.response);
-    $ul.appendChild(dogListView(xhr.response));
+    $modalJudge.setAttribute('class', 'modal judge');
   } else {
     $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
     data.entries.pop();
@@ -123,7 +127,7 @@ function dogListView(entry) {
   if (entry[0].breeds[0]) {
     p.textContent = entry[0].breeds[0].name;
     var p2 = document.createElement('p');
-    p2.setAttribute('class', 'inline breed-info margin-none underline margin-bottom text-align-right-mobile width');
+    p2.setAttribute('class', 'inline breed-info margin-none underline margin-bottom-none text-align-right-mobile width');
     p2.textContent = 'Click here to learn more!';
     p2.setAttribute('id', entry[0].id);
   } else {
@@ -131,10 +135,24 @@ function dogListView(entry) {
   }
   p.setAttribute('class', 'inline text-align-right-mobile margin-bottom-none margin-top-none');
   div.appendChild(p);
+
   li.appendChild(div);
   if (p2) {
     div.appendChild(p2);
   }
+  var stars = document.createElement('div');
+  stars.setAttribute('class', 'stars row');
+  var starIcon = document.createElement('img');
+  starIcon.setAttribute('class', 'star-icon-filled');
+  starIcon.setAttribute('src', 'images/star-fill.png');
+  for (var i = 0; i < entry[0].rating; i++) {
+    stars.appendChild(starIcon.cloneNode(true));
+  }
+  div.appendChild(stars);
+  var comments = document.createElement('p');
+  comments.textContent = entry[0].comment;
+  div.appendChild(comments);
+
   return li;
 }
 
@@ -174,8 +192,10 @@ function switchViews(event) {
   }
 }
 
+var numOfStars = null;
+
 function fillStars(event) {
-  var numOfStars = 0;
+  numOfStars = null;
   for (var i = 0; i < $starIcons.length; i++) {
     $starIcons[i].setAttribute('src', 'images/star-empty.png');
     if (event.target === $starIcons[i]) {
@@ -185,5 +205,15 @@ function fillStars(event) {
   for (var e = 0; e < numOfStars; e++) {
     $starIcons[e].setAttribute('src', 'images/star-fill.png');
   }
+}
 
+function submit(event) {
+  if (numOfStars !== null) {
+    data.entries[data.entries.length - 1][0].rating = numOfStars;
+  }
+  if ($textArea.value !== undefined) {
+    data.entries[data.entries.length - 1][0].comment = $textArea.value;
+  }
+  $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
+  $modalJudge.setAttribute('class', 'modal judge hidden');
 }
