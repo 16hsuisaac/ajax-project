@@ -127,7 +127,7 @@ function dogListView(entry) {
   li.appendChild(img);
 
   var div = document.createElement('div');
-  div.setAttribute('class', 'column-half margin-left');
+  div.setAttribute('class', 'column-half margin-left width-350-mobile');
   var p = document.createElement('p');
   div.appendChild(p);
   if (entry[0].breeds[0]) {
