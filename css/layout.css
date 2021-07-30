@@ -47,14 +47,6 @@
   text-align: right;
 }
 
-.margin-right-bottom-desktop {
-  margin: 0;
-}
-
-.justify-end-mobile {
-  justify-content: flex-end;
-}
-
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -102,14 +94,5 @@
 
   .text-align-right-mobile {
     text-align: left;
-  }
-
-  .margin-right-bottom-desktop {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .justify-end-mobile {
-    justify-content: flex-start;
   }
 }
