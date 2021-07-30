@@ -247,10 +247,10 @@ function edit(event) {
     for (var i = 0; i < data.entries.length; i++) {
       if (event.target.getAttribute('id-key') === data.entries[i][0].id) {
         fillStars(data.entries[i][0].rating);
-        if (data.entries[i][0].comments === undefined) {
+        if (data.entries[i][0].comment === undefined) {
           $textArea.value = '';
         } else {
-          $textArea.value = data.entries[i][0].comments;
+          $textArea.value = data.entries[i][0].comment;
         }
       }
     }
