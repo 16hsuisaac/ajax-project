@@ -81,6 +81,10 @@ function breedInfo(event) {
 function random(event) {
   xhr = getDogPic();
   $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
+  for (var i = 0; i < $starIcons.length; i++) {
+    $starIcons[i].setAttribute('src', 'images/star-empty.png');
+  }
+  $textArea.value = null;
 }
 
 function modal(event) {
