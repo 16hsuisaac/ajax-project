@@ -144,15 +144,26 @@ function dogListView(entry) {
   if (p2) {
     div.appendChild(p2);
   }
+  var starsRow = document.createElement('div');
+  starsRow.setAttribute('class', 'row margin-top');
   var stars = document.createElement('div');
-  stars.setAttribute('class', 'stars row margin-top');
+  stars.setAttribute('class', 'stars row all-column-half');
   var starIcon = document.createElement('img');
   starIcon.setAttribute('class', 'star-icon-filled');
   starIcon.setAttribute('src', 'images/star-fill.png');
   for (var i = 0; i < entry[0].rating; i++) {
     stars.appendChild(starIcon.cloneNode(true));
   }
-  div.appendChild(stars);
+  div.appendChild(starsRow);
+  starsRow.appendChild(stars);
+  var pencil = document.createElement('img');
+  pencil.setAttribute('class', 'pencil-square');
+  pencil.setAttribute('id-key', entry[0].id);
+  pencil.setAttribute('src', 'images/pencil-square.png');
+  var pencilDiv = document.createElement('div');
+  pencilDiv.setAttribute('class', 'row all-column-half justify-end');
+  starsRow.appendChild(pencilDiv);
+  pencilDiv.appendChild(pencil);
   var comments = document.createElement('p');
   comments.setAttribute('class', 'sixteen-font margin-top-none text-align-left');
   comments.textContent = entry[0].comment;
