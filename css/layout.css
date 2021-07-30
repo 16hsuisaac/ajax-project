@@ -87,9 +87,9 @@
 
   .modal-content {
     position: relative;
-    top: -10%;
+    top: 7rem;
     background-color: #fefefe;
-    margin: 25% auto;
+    margin: auto;
     padding: 20px;
     width: 60%;
     border-radius: 10px;
