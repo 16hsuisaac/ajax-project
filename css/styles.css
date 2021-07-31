@@ -32,6 +32,10 @@ header {
   width: 100%;
 }
 
+.width-90 {
+  width: 90%;
+}
+
 .pink {
   color: #f38ba0;
 }

@@ -41,6 +41,8 @@
 .above-footer {
   position: fixed;
   bottom: 75px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .text-align-right-mobile {

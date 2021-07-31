@@ -47,7 +47,7 @@ $ul.addEventListener('click', edit);
 var xhr = null;
 
 function openApp(event) {
-  $body.setAttribute('class', 'background-color-gray margin-none');
+  $body.setAttribute('class', 'background-color-gray');
   xhr = getDogPic();
   $openingScreen.setAttribute('class', 'opening-screen row container hidden');
   $homeScreen.setAttribute('class', 'home-screen');
