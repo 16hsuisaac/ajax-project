@@ -59,7 +59,7 @@ function getDogPic() {
   xhr.open('GET', 'https://api.thedogapi.com/v1/images/search');
   xhr.responseType = 'json';
   xhr.addEventListener('loadstart', spinner);
-  xhr.addEventListener('loadend', breedInfo);
+  xhr.addEventListener('load', breedInfo);
   xhr.send();
   return xhr;
 }
