@@ -30,6 +30,7 @@ var $starIcons = document.querySelectorAll('.star-icons');
 var $save = document.querySelector('.save');
 var $textArea = document.querySelector('textarea');
 var $modalJudge = document.querySelector('.judge');
+var $spinner = document.querySelector('.spinner');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -46,9 +47,9 @@ $ul.addEventListener('click', edit);
 var xhr = null;
 
 function openApp(event) {
+  $body.setAttribute('class', 'background-color-gray margin-none');
   xhr = getDogPic();
   $openingScreen.setAttribute('class', 'opening-screen row container hidden');
-  $body.setAttribute('class', 'background-color-gray margin-none');
   $homeScreen.setAttribute('class', 'home-screen');
 }
 
@@ -57,12 +58,18 @@ function getDogPic() {
   xhr['x-api-key'] = '9c73ad28-2006-43c9-8f08-9e2c96fc540a';
   xhr.open('GET', 'https://api.thedogapi.com/v1/images/search');
   xhr.responseType = 'json';
-  xhr.addEventListener('load', breedInfo);
+  xhr.addEventListener('loadstart', spinner);
+  xhr.addEventListener('loadend', breedInfo);
   xhr.send();
   return xhr;
 }
 
+function spinner(event) {
+  $spinner.setAttribute('class', 'spinner');
+}
+
 function breedInfo(event) {
+  $spinner.setAttribute('class', 'spinner hidden');
   if (xhr.response[0].breeds[0]) {
     breed = xhr.response[0].breeds[0].name;
     $learnMore.textContent = 'Click here to learn more!';
