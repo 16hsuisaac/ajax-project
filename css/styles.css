@@ -205,8 +205,8 @@ button,
 
 .spinner {
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: 45%;
+  top: 45%;
   margin: auto;
   width: 64px;
   height: 64px;
