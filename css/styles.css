@@ -32,6 +32,10 @@ header {
   width: 100%;
 }
 
+.width-90 {
+  width: 90%;
+}
+
 .pink {
   color: #f38ba0;
 }
@@ -69,6 +73,7 @@ header {
   background-color: #f38ba0;
   border: none;
   border-radius: 10px;
+  transition: background-color 500ms;
 }
 
 .big-padding {
@@ -89,6 +94,7 @@ header {
 
 .get-started {
   font-size: 2rem;
+  transition: background-color 500ms;
 }
 
 .sixteen-font {
@@ -178,4 +184,44 @@ main {
 
 li {
   margin-bottom: 1rem;
+}
+
+.home-button-header,
+.saved-button-header,
+button,
+.star-icons,
+.star-icons-filled,
+.home-button,
+.saved-button,
+.underline,
+.pencil-square {
+  cursor: pointer;
+}
+
+.get-started:hover,
+.button:hover {
+  background-color: #ffbcbc;
+}
+
+.spinner {
+  position: fixed;
+  left: 45%;
+  top: 45%;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #f38ba0 transparent #f38ba0 transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
