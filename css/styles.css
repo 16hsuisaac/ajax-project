@@ -90,7 +90,7 @@ header {
 }
 
 .tiny-padding {
-  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
+  padding: 0.2rem 0.5rem 0.1rem 0.5rem;
 }
 
 .bottom-padding {
@@ -146,6 +146,10 @@ main {
 
 .random {
   font-size: 24pt;
+}
+
+.random-button {
+  height: 100%;
 }
 
 .text-align-right {
