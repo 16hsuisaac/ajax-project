@@ -7,6 +7,10 @@ span {
   font-size: 0.75rem;
 }
 
+.white {
+  color: white;
+}
+
 .background-color-blue {
   background-color: #b5eaea;
 }
@@ -55,6 +59,10 @@ header {
 
 .margin-top {
   margin-top: 1rem;
+}
+
+.margin-top-two {
+  margin-top: 2rem;
 }
 
 .margin-top-none {
