@@ -53,6 +53,11 @@
   width: 350px;
 }
 
+.get-started:active,
+.button:active {
+  background-color: #ffbcbc;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -105,5 +110,10 @@
 
   .text-align-right-mobile {
     text-align: left;
+  }
+
+  .get-started:hover,
+  .button:hover {
+    background-color: #ffbcbc;
   }
 }

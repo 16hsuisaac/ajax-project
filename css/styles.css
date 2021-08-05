@@ -212,11 +212,6 @@ button,
   cursor: pointer;
 }
 
-.get-started:hover,
-.button:hover {
-  background-color: #ffbcbc;
-}
-
 .spinner {
   position: fixed;
   left: 45%;
