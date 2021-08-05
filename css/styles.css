@@ -3,6 +3,10 @@ body {
   margin: 0;
 }
 
+span {
+  font-size: 0.75rem;
+}
+
 .background-color-blue {
   background-color: #b5eaea;
 }
@@ -128,7 +132,12 @@ main {
 }
 
 .padding-around {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
+}
+
+.actual-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .all-column-half {
@@ -141,6 +150,10 @@ main {
 
 .text-align-right {
   text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .modal {
@@ -159,10 +172,6 @@ main {
 
 .bookmark-icon {
   width: 80%;
-}
-
-.home-button-header {
-  margin-left: 2rem;
 }
 
 .textarea {
