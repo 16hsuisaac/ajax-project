@@ -11,6 +11,39 @@
   margin: 0 auto;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.width {
+  width: 100%;
+}
+
+.width-90 {
+  width: 90%;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.actual-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.all-column-half {
+  width: 50%;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
