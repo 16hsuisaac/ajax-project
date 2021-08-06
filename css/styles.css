@@ -1,5 +1,14 @@
 body {
   font-family: 'Nunito', sans-serif;
+  margin: 0;
+}
+
+span {
+  font-size: 0.75rem;
+}
+
+.white {
+  color: white;
 }
 
 .background-color-blue {
@@ -24,18 +33,6 @@ header {
   background-color: white;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
-.width {
-  width: 100%;
-}
-
-.width-90 {
-  width: 90%;
-}
-
 .pink {
   color: #f38ba0;
 }
@@ -44,52 +41,12 @@ header {
   width: 100%;
 }
 
-.margin-none {
-  margin: 0;
-}
-
-.margin-top {
-  margin-top: 1rem;
-}
-
-.margin-top-none {
-  margin-top: 0;
-}
-
-.margin-left {
-  margin-left: 1rem;
-}
-
-.margin-bottom-none {
-  margin-bottom: 0;
-}
-
-.margin-bottom {
-  margin-bottom: 2rem;
-}
-
 .button {
   color: white;
   background-color: #f38ba0;
   border: none;
   border-radius: 10px;
   transition: background-color 500ms;
-}
-
-.big-padding {
-  padding: 1rem 2rem;
-}
-
-.small-padding {
-  padding: 0.3rem 1rem;
-}
-
-.tiny-padding {
-  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
-}
-
-.bottom-padding {
-  padding: 0 0 3rem 0;
 }
 
 .get-started {
@@ -118,28 +75,64 @@ footer {
   border-radius: 5px;
 }
 
-.justify-end {
-  justify-content: flex-end;
-}
-
 main {
   padding: 1rem 1rem;
-}
-
-.padding-around {
-  padding: 1rem 2rem;
-}
-
-.all-column-half {
-  width: 50%;
 }
 
 .random {
   font-size: 24pt;
 }
 
-.text-align-right {
-  text-align: right;
+.random-button {
+  height: 100%;
+}
+
+.margin-none {
+  margin: 0;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
+
+.margin-top-two {
+  margin-top: 2rem;
+}
+
+.margin-top-none {
+  margin-top: 0;
+}
+
+.margin-left {
+  margin-left: 1rem;
+}
+
+.margin-bottom-none {
+  margin-bottom: 0;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.big-padding {
+  padding: 1rem 2rem;
+}
+
+.small-padding {
+  padding: 0.3rem 1rem;
+}
+
+.tiny-padding {
+  padding: 0.2rem 0.5rem 0.1rem 0.5rem;
+}
+
+.bottom-padding {
+  padding: 0 0 3rem 0;
+}
+
+.padding-around {
+  padding: 0.5rem 2rem;
 }
 
 .modal {
@@ -158,10 +151,6 @@ main {
 
 .bookmark-icon {
   width: 80%;
-}
-
-.home-button-header {
-  margin-left: 2rem;
 }
 
 .textarea {
@@ -196,11 +185,6 @@ button,
 .underline,
 .pencil-square {
   cursor: pointer;
-}
-
-.get-started:hover,
-.button:hover {
-  background-color: #ffbcbc;
 }
 
 .spinner {

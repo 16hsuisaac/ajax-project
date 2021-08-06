@@ -1,9 +1,4 @@
 var $getStarted = document.querySelector('.get-started');
-var $openingScreen = document.querySelector('.opening-screen');
-var $dog = document.querySelector('.dog');
-var $body = document.querySelector('body');
-var $homeScreen = document.querySelector('.home-screen');
-var $dogBreedText = document.querySelector('.dog-breed-text');
 var breed = null;
 var $random = document.querySelector('.random');
 var $learnMore = document.querySelector('.breed-info');
@@ -17,12 +12,6 @@ var $exit = document.querySelector('.exit');
 var $bookmarkButton = document.querySelector('.bookmark-button');
 var $bookmarkIcon = document.querySelector('.bookmark-icon');
 var $ul = document.querySelector('ul');
-var $homeButton = document.querySelector('.home-button');
-var $savedButton = document.querySelector('.saved-button');
-var $homePage = document.querySelector('.home-page');
-var $viewPage = document.querySelector('.view-page');
-var $homeButtonHeader = document.querySelector('.home-button-header');
-var $savedButtonHeader = document.querySelector('.saved-button-header');
 var $footer = document.querySelector('footer');
 var $header = document.querySelector('header');
 var $stars = document.querySelector('.stars');
@@ -47,6 +36,9 @@ $ul.addEventListener('click', edit);
 var xhr = null;
 
 function openApp(event) {
+  var $body = document.querySelector('body');
+  var $openingScreen = document.querySelector('.opening-screen');
+  var $homeScreen = document.querySelector('.home-screen');
   $body.setAttribute('class', 'background-color-gray');
   xhr = getDogPic();
   $openingScreen.setAttribute('class', 'opening-screen row container hidden');
@@ -69,6 +61,8 @@ function spinner(event) {
 }
 
 function breedInfo(event) {
+  var $dog = document.querySelector('.dog');
+  var $dogBreedText = document.querySelector('.dog-breed-text');
   $spinner.setAttribute('class', 'spinner hidden');
   if (xhr.response[0].breeds[0]) {
     breed = xhr.response[0].breeds[0].name;
@@ -199,6 +193,12 @@ function listModal(event) {
 }
 
 function switchViews(event) {
+  var $homePage = document.querySelector('.home-page');
+  var $viewPage = document.querySelector('.view-page');
+  var $homeButton = document.querySelector('.home-button');
+  var $savedButton = document.querySelector('.saved-button');
+  var $homeButtonHeader = document.querySelector('.home-button-header');
+  var $savedButtonHeader = document.querySelector('.saved-button-header');
   if (event.target === $homeButton || event.target === $homeButtonHeader) {
     $homePage.setAttribute('class', 'home-page');
     $viewPage.setAttribute('class', 'view-page hidden');
