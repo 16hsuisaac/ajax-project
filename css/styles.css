@@ -209,3 +209,7 @@ button,
     transform: rotate(360deg);
   }
 }
+
+.flex {
+  display: flex;
+}

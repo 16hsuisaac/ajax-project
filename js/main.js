@@ -119,7 +119,7 @@ function dogList(event) {
 
 function dogListView(entry) {
   var li = document.createElement('li');
-  li.setAttribute('class', 'row justify-end');
+  li.setAttribute('class', 'row justify-center');
   li.setAttribute('liId', entry[0].id);
 
   var img = document.createElement('img');
