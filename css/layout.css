@@ -149,4 +149,8 @@
   .button:hover {
     background-color: #ffbcbc;
   }
+
+  .nowrap {
+    flex-wrap: nowrap;
+  }
 }
