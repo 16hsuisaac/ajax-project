@@ -25,7 +25,7 @@ Try the application at: hsu-isaac.github.io/peep-dog/
 
 ## Preview!
 
-[ajax-demonstration](https://user-images.githubusercontent.com/85271794/134747219-ac71569d-914d-4efc-9351-f62a9a6c6d4d.gif)
+![ajax-demonstration](https://user-images.githubusercontent.com/85271794/134747219-ac71569d-914d-4efc-9351-f62a9a6c6d4d.gif)
 
 ## Getting Started
 1. Clone the repository.
