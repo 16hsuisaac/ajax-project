@@ -33,7 +33,7 @@ Try the application at: hsu-isaac.github.io/peep-dog/
     git clone https://github.om/hsu-isaac/peep-dog.git
     cd peep-dog
     ```
-2. Insall all the dependencies with NPM.
+2. Install all the dependencies with NPM.
     ```shell
     npm install
     ```
