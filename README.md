@@ -4,7 +4,7 @@ A dynamic HTML, CSS, and JavaScript web application for dog lovers who want to v
 
 ## Live Deployment Link
 
-Try the application at: hsu-isaac.github.io/peep-dog/
+Try the application <a href="hsu-isaac.github.io/peep-dog/">here!</a>
 
 ## Stack
 - HTML
