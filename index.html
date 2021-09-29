@@ -31,7 +31,7 @@
       <div class="row justify-center desktop-hidden">
         <img src="images/paws.png" alt="image of two paw prints" class="paws margin-bottom">
       </div>
-      <div class="row justify-center width">
+      <div class="row justify-center">
         <button class="button get-started big-padding">Get Started</button>
         <div class="description width-90 text-align-center">
           <p class="pink margin-top-two">An app for viewing, saving, and rating random dog pictures!</p>
@@ -57,21 +57,24 @@
       <main class="justify-center flex">
         <div class="home-page">
           <div class="row justify-center">
-            <div class="dog-image row text-align-right">
-              <div class="dog-breed width justify-center">
-              <img class="dog">
-              <p class="dog-breed-text margin-none sixteen-font"></p>
-              <p class="breed-info margin-none sixteen-font underline"></p>
+            <div class="dog-image">
+              <div class="dog-breed justify-center">
+                <img class="dog">
+                <div class="text-align-right">
+                  <p class="dog-breed-text margin-none sixteen-font"></p>
+                  <p class="breed-info margin-none sixteen-font underline"></p>
+                </div>
+                <div class="above-footer justify-space-between row">
+                  <div class="random-button all-column-half">
+                    <button class="button get-started small-padding random">Random</button>
+                  </div>
+                  <div class="all-column-half row justify-end">
+                    <button class="button bookmark-button tiny-padding"><img src="images/bookmark-plus.png"
+                        class="bookmark-icon"></button>
+                  </div>
+                </div>
               </div>
             </div>
-              <div class="above-footer row width-90">
-                <div class="random-button all-column-half">
-                  <button class="button get-started small-padding random">Random</button>
-                </div>
-                <div class="all-column-half row justify-end">
-                  <button class="button bookmark-button tiny-padding"><img src="images/bookmark-plus.png" class="bookmark-icon"></button>
-                </div>
-              </div>
           </div>
         </div>
         <div class="view-page hidden">
@@ -105,7 +108,7 @@
                 <img src="images/star-empty.png" alt="empty star" class="star-icons" value="4">
                 <img src="images/star-empty.png" alt="empty star" class="star-icons" value="5">
               </div>
-              <div class="comments width">
+              <div class="comments">
                 <p class="margin-bottom-none sixteen-font">Comments</p>
                 <textarea class="textarea sixteen-font" rows="12"></textarea>
               </div>

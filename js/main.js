@@ -1,25 +1,25 @@
-var $getStarted = document.querySelector('.get-started');
-var breed = null;
-var $random = document.querySelector('.random');
-var $learnMore = document.querySelector('.breed-info');
-var $breedName = document.querySelector('.breed-name');
-var $bredFor = document.querySelector('.bred-for');
-var $breedHeight = document.querySelector('.breed-height');
-var $breedWeight = document.querySelector('.breed-weight');
-var $breedTemper = document.querySelector('.breed-temperament');
-var $modal = document.querySelector('.modal');
-var $exit = document.querySelector('.exit');
-var $bookmarkButton = document.querySelector('.bookmark-button');
-var $bookmarkIcon = document.querySelector('.bookmark-icon');
-var $ul = document.querySelector('ul');
-var $footer = document.querySelector('footer');
-var $header = document.querySelector('header');
-var $stars = document.querySelector('.stars');
-var $starIcons = document.querySelectorAll('.star-icons');
-var $save = document.querySelector('.save');
-var $textArea = document.querySelector('textarea');
-var $modalJudge = document.querySelector('.judge');
-var $spinner = document.querySelector('.spinner');
+const $getStarted = document.querySelector('.get-started');
+let breed = null;
+const $random = document.querySelector('.random');
+const $learnMore = document.querySelector('.breed-info');
+const $breedName = document.querySelector('.breed-name');
+const $bredFor = document.querySelector('.bred-for');
+const $breedHeight = document.querySelector('.breed-height');
+const $breedWeight = document.querySelector('.breed-weight');
+const $breedTemper = document.querySelector('.breed-temperament');
+const $modal = document.querySelector('.modal');
+const $exit = document.querySelector('.exit');
+const $bookmarkButton = document.querySelector('.bookmark-button');
+const $bookmarkIcon = document.querySelector('.bookmark-icon');
+const $ul = document.querySelector('ul');
+const $footer = document.querySelector('footer');
+const $header = document.querySelector('header');
+const $stars = document.querySelector('.stars');
+const $starIcons = document.querySelectorAll('.star-icons');
+const $save = document.querySelector('.save');
+const $textArea = document.querySelector('textarea');
+const $modalJudge = document.querySelector('.judge');
+const $spinner = document.querySelector('.spinner');
 
 $getStarted.addEventListener('click', openApp);
 $random.addEventListener('click', random);
@@ -33,12 +33,12 @@ $stars.addEventListener('click', newStars);
 $save.addEventListener('click', submit);
 $ul.addEventListener('click', edit);
 
-var xhr = null;
+let xhr = null;
 
 function openApp(event) {
-  var $body = document.querySelector('body');
-  var $openingScreen = document.querySelector('.opening-screen');
-  var $homeScreen = document.querySelector('.home-screen');
+  const $body = document.querySelector('body');
+  const $openingScreen = document.querySelector('.opening-screen');
+  const $homeScreen = document.querySelector('.home-screen');
   $body.setAttribute('class', 'background-color-gray');
   xhr = getDogPic();
   $openingScreen.setAttribute('class', 'opening-screen row container hidden');
@@ -46,7 +46,7 @@ function openApp(event) {
 }
 
 function getDogPic() {
-  var xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr['x-api-key'] = '9c73ad28-2006-43c9-8f08-9e2c96fc540a';
   xhr.open('GET', 'https://api.thedogapi.com/v1/images/search');
   xhr.responseType = 'json';
@@ -61,8 +61,8 @@ function spinner(event) {
 }
 
 function breedInfo(event) {
-  var $dog = document.querySelector('.dog');
-  var $dogBreedText = document.querySelector('.dog-breed-text');
+  const $dog = document.querySelector('.dog');
+  const $dogBreedText = document.querySelector('.dog-breed-text');
   $spinner.setAttribute('class', 'spinner hidden');
   if (xhr.response[0].breeds[0]) {
     breed = xhr.response[0].breeds[0].name;
@@ -76,14 +76,14 @@ function breedInfo(event) {
     breed = 'Unknown';
     $learnMore.textContent = null;
   }
-  $dogBreedText.textContent = breed;
+  $dogBreedText.textContent = 'Breed: ' + breed;
   $dog.setAttribute('src', xhr.response[0].url);
 }
 
 function random(event) {
   xhr = getDogPic();
   $bookmarkIcon.setAttribute('src', 'images/bookmark-plus.png');
-  for (var i = 0; i < $starIcons.length; i++) {
+  for (let i = 0; i < $starIcons.length; i++) {
     $starIcons[i].setAttribute('src', 'images/star-empty.png');
   }
   $textArea.value = null;
@@ -112,24 +112,34 @@ function bookmark(event) {
 window.addEventListener('DOMContentLoaded', dogList);
 
 function dogList(event) {
-  for (var i = 0; i < data.entries.length; i++) {
-    $ul.appendChild(dogListView(data.entries[i]));
+  if (data.entries.length === 0) {
+    const div = document.createElement('div');
+    div.setAttribute('class', 'justify-center margin-top');
+    const p = document.createElement('p');
+    p.setAttribute('class', 'header');
+    p.textContent = 'No dogs saved!';
+    div.appendChild(p);
+    $ul.appendChild(div);
+  } else {
+    for (let i = 0; i < data.entries.length; i++) {
+      $ul.appendChild(dogListView(data.entries[i]));
+    }
   }
 }
 
 function dogListView(entry) {
-  var li = document.createElement('li');
+  const li = document.createElement('li');
   li.setAttribute('class', 'row justify-center nowrap');
   li.setAttribute('liId', entry[0].id);
 
-  var img = document.createElement('img');
+  const img = document.createElement('img');
   img.setAttribute('class', 'dog column-half margin-right-bottom-desktop');
   img.setAttribute('src', entry[0].url);
   li.appendChild(img);
 
-  var div = document.createElement('div');
+  const div = document.createElement('div');
   div.setAttribute('class', 'column-half margin-left width-350-mobile');
-  var p = document.createElement('p');
+  const p = document.createElement('p');
   div.appendChild(p);
   if (entry[0].breeds[0]) {
     p.textContent = entry[0].breeds[0].name;
@@ -147,38 +157,38 @@ function dogListView(entry) {
   if (p2) {
     div.appendChild(p2);
   }
-  var starsRow = document.createElement('div');
+  const starsRow = document.createElement('div');
   starsRow.setAttribute('class', 'row margin-top');
-  var stars = document.createElement('div');
+  const stars = document.createElement('div');
   stars.setAttribute('class', 'stars row all-column-half');
-  var starIcon = document.createElement('img');
+  const starIcon = document.createElement('img');
   starIcon.setAttribute('class', 'star-icon-filled');
   starIcon.setAttribute('src', 'images/star-fill.png');
-  for (var i = 0; i < entry[0].rating; i++) {
+  for (let i = 0; i < entry[0].rating; i++) {
     stars.appendChild(starIcon.cloneNode(true));
   }
   div.appendChild(starsRow);
   starsRow.appendChild(stars);
-  var pencil = document.createElement('img');
+  const pencil = document.createElement('img');
   pencil.setAttribute('class', 'pencil-square');
   pencil.setAttribute('id-key', entry[0].id);
   pencil.setAttribute('src', 'images/pencil-square.png');
-  var pencilDiv = document.createElement('div');
+  const pencilDiv = document.createElement('div');
   pencilDiv.setAttribute('class', 'row all-column-half justify-end');
   starsRow.appendChild(pencilDiv);
   pencilDiv.appendChild(pencil);
-  var comments = document.createElement('p');
+  const comments = document.createElement('p');
   comments.setAttribute('class', 'sixteen-font margin-top-none text-align-left');
   comments.textContent = entry[0].comment;
   div.appendChild(comments);
   return li;
 }
 
-var iD = null;
+let iD = null;
 
 function listModal(event) {
   if (event.target.matches('.breed-info')) {
-    for (var i = 0; i < data.entries.length; i++) {
+    for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i][0].id === event.target.getAttribute('id')) {
         iD = i;
       }
@@ -193,12 +203,12 @@ function listModal(event) {
 }
 
 function switchViews(event) {
-  var $homePage = document.querySelector('.home-page');
-  var $viewPage = document.querySelector('.view-page');
-  var $homeButton = document.querySelector('.home-button');
-  var $savedButton = document.querySelector('.saved-button');
-  var $homeButtonHeader = document.querySelector('.home-button-header');
-  var $savedButtonHeader = document.querySelector('.saved-button-header');
+  const $homePage = document.querySelector('.home-page');
+  const $viewPage = document.querySelector('.view-page');
+  const $homeButton = document.querySelector('.home-button');
+  const $savedButton = document.querySelector('.saved-button');
+  const $homeButtonHeader = document.querySelector('.home-button-header');
+  const $savedButtonHeader = document.querySelector('.saved-button-header');
   if (event.target === $homeButton || event.target === $homeButtonHeader) {
     $homePage.setAttribute('class', 'home-page');
     $viewPage.setAttribute('class', 'view-page hidden');
@@ -216,7 +226,7 @@ function switchViews(event) {
   }
 }
 
-var numOfStars = null;
+let numOfStars = null;
 
 function newStars(event) {
   numOfStars = null;
@@ -225,13 +235,13 @@ function newStars(event) {
 
 function fillStars(number) {
   numOfStars = number;
-  for (var i = 0; i < $starIcons.length; i++) {
+  for (let i = 0; i < $starIcons.length; i++) {
     $starIcons[i].setAttribute('src', 'images/star-empty.png');
     if (event.target === $starIcons[i]) {
       numOfStars = parseInt($starIcons[i].getAttribute('value'));
     }
   }
-  for (var e = 0; e < numOfStars; e++) {
+  for (let e = 0; e < numOfStars; e++) {
     $starIcons[e].setAttribute('src', 'images/star-fill.png');
   }
 }
@@ -248,8 +258,8 @@ function submit(event) {
     $ul.appendChild(dogListView(data.entries[data.entries.length - 1]));
 
   } else {
-    var objectEdit = [{ id: data.editing[0].id, rating: numOfStars, comment: $textArea.value }];
-    for (var i = 0; i < data.entries.length; i++) {
+    const objectEdit = [{ id: data.editing[0].id, rating: numOfStars, comment: $textArea.value }];
+    for (let i = 0; i < data.entries.length; i++) {
       if (data.entries[i][0].id === objectEdit[0].id) {
         data.entries[i][0].rating = objectEdit[0].rating;
         data.entries[i][0].comment = objectEdit[0].comment;
@@ -257,8 +267,8 @@ function submit(event) {
         var numId = i;
       }
     }
-    var $liItems = document.querySelectorAll('li');
-    for (var e = 0; e < $liItems.length; e++) {
+    const $liItems = document.querySelectorAll('li');
+    for (let e = 0; e < $liItems.length; e++) {
       if ($liItems[e].getAttribute('liId') === data.entries[numId][0].id) {
         $ul.replaceChild(editedEntry, $liItems[e]);
       }
@@ -271,7 +281,7 @@ function submit(event) {
 function edit(event) {
   if (event.target.matches('.pencil-square')) {
     $modalJudge.setAttribute('class', 'modal judge');
-    for (var i = 0; i < data.entries.length; i++) {
+    for (let i = 0; i < data.entries.length; i++) {
       if (event.target.getAttribute('id-key') === data.entries[i][0].id) {
         data.editing = data.entries[i];
         fillStars(data.entries[i][0].rating);
