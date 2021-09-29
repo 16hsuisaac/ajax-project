@@ -13,7 +13,7 @@ Try the application at: hsu-isaac.github.io/peep-dog/
 
 ## Features
 1. User can view and reroll random images of dogs
-2. User can click a button to view more information about th edog's breed
+2. User can click a button to view more information about the dog's breed
 3. User can save pictures
 4. User can view the saved pictures
 5. User can add notes/ratings to saved images
