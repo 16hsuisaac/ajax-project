@@ -3,10 +3,6 @@ body {
   margin: 0;
 }
 
-span {
-  font-size: 0.75rem;
-}
-
 .white {
   color: white;
 }
@@ -222,6 +218,10 @@ button,
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
 }
 
 .padding-left {

@@ -6,11 +6,11 @@ var data = {
 
 window.addEventListener('unload', beforeUnload);
 function beforeUnload(event) {
-  var dataJSON = JSON.stringify(data);
+  const dataJSON = JSON.stringify(data);
   localStorage.setItem('data', dataJSON);
 }
 
-var previousDataJSON = localStorage.getItem('data');
+const previousDataJSON = localStorage.getItem('data');
 if (previousDataJSON !== null) {
   data = (JSON.parse(previousDataJSON));
 }
