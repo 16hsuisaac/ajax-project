@@ -47,7 +47,7 @@ function openApp(event) {
 
 function getDogPic() {
   const xhr = new XMLHttpRequest();
-  xhr['x-api-key'] = '9c73ad28-2006-43c9-8f08-9e2c96fc540a';
+  xhr['x-api-key'] = 'live_AbxZ9Uhoc6k85PJlYXd6WnSETLyqs1ryu8w2ovMxTPk5DSebTnMnS7tT9c2Aa1Ov';
   xhr.open('GET', 'https://api.thedogapi.com/v1/images/search');
   xhr.responseType = 'json';
   xhr.addEventListener('loadstart', spinner);
