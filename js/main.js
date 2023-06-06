@@ -64,7 +64,7 @@ function breedInfo(event) {
   const $dog = document.querySelector('.dog');
   const $dogBreedText = document.querySelector('.dog-breed-text');
   $spinner.setAttribute('class', 'spinner hidden');
-  if (xhr.response[0].breeds[0]) {
+  if (xhr.response[0].breeds) {
     breed = xhr.response[0].breeds[0].name;
     $learnMore.textContent = 'Click here to learn more!';
     $breedName.textContent = breed;
